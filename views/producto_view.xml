@@ -27,7 +27,7 @@
                                  <field name="id_productos" />
                                  <field name="descripcion" />                          
                                  <field name="stock" />
-                                 <field name="detallef" />
+                                 
                                  <field name="produc" />
                                  <field name="procedencia"/>
                                  <field name="precio"/>
