@@ -30,7 +30,7 @@
                                  
                                  <field name="produc" />
                                  <field name="procedencia"/>
-                                 <field name="precio"/>
+                                 <field name="precio" />
                               </group>   
                              </page>
                             </notebook>

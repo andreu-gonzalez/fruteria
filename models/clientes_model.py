@@ -7,7 +7,7 @@ class clientes_model(models.Model):
     _sql_constraints = [("sql_cons_check_dni_clientes_model","UNIQUE(dni)","Error en cliente. El dni del cliente ya existe!"),
                      ("sql_cons_check_id_clientes_model","UNIQUE(id_clientes)","Error en cliente. El id  del cliente ya existe!"),]
 
-    id_clientes = fields.Char(string="Id_clientes",size=9,help="Id de los clientes",required=True)
+    id_clientes = fields.Char(string="Id_clientes",size=9,help="Id de los clientes",required=True,index=True)
     name = fields.Char(string="Nombre", size=20, help="nombre del clientes",required=True)
     apellidos = fields.Char(string="Apellidos", size=20, help="apellidos del clientes",required=True)
     dni = fields.Char(string="DNI",size=9,help="DNI",required=True)
@@ -17,7 +17,7 @@ class clientes_model(models.Model):
     tlf = fields.Char(string="telefono",help="telefono de client",size=9,required=True)
     facturas = fields.One2many("fruteria.fac_model","cliente", string="Facturas")
     tra= fields.Many2one("fruteria.trabajadores_model", string="Trabajadores")
-    foto=fields.Binary()
+    foto=fields.Binary(string="foto",help="fotografia cliente")
 
     @api.constrains("tlf")
     def checkTelf(self):

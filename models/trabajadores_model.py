@@ -17,7 +17,7 @@ class trabajadores_model(models.Model):
     sueldo = fields.Float(string="Sueldo", help="sueldo de los trabajadores")
     cargo = fields.Char(string="Cargo",help="el cargo que ocupa en la empresa",size=10)
    
-    clientes = fields.One2many("fruteria.clientes_model","tra")
+    clientes = fields.One2many("fruteria.clientes_model","tra",default=lambda self: self.env['fruteria.clientes_model'].search([]) )
 
     @api.constrains("tlf")
     def checkTelf(self):

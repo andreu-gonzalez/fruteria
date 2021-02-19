@@ -6,7 +6,7 @@ class proveedores_model(models.Model):
     _description = 'fruteria.proveedores_model'
     _sql_constraints = [("sql_cons_check_id_proveedores_proveedores_model","UNIQUE(id_proveedores)","Error en cliente. El dni id_proveedores proveedores ya existe!"),]
 
-    id_proveedores = fields.Char(string="Id_proveedores",size=9,help="Id de los productos")
+    id_proveedores = fields.Char(string="Id_proveedores",size=9,help="Id de los productos",index=True)
     name = fields.Char(string="Nombre", size=20, help="nombre del producto")
     descripcion = fields.Text(string="Descripcion",help="Descripcion del producto")
     Direccion = fields.Char(string="Direccion de los proveedores", help="Descripcion de los proveedores")

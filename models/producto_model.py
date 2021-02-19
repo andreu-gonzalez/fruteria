@@ -5,7 +5,7 @@ class producto_model(models.Model):
     _name = 'fruteria.producto_model'   
     _description = 'fruteria.producto_model'
 
-    id_productos = fields.Char(string="Id_productos",size=9,help="Id de los productos",required=True)
+    id_productos = fields.Char(string="Id_productos",size=9,help="Id de los productos",required=True,index=True)
     name = fields.Char(string="Nombre", size=20, help="nombre del producto",required=True)
     descripcion = fields.Text(string="Descripcion",help="Descripcion del producto",required=True)
     procedencia = fields.Selection(string="Procedencia",help="Procedencia del producto",selection=[('valencia','valencia'),('castellon', 'castellon'),('alicante', 'alicante')])
@@ -24,4 +24,4 @@ class producto_model(models.Model):
     def actualizaSalario(self):
           self.ensure_one()
           if self.stock <= 0:
-               raise ValidationError("La cantidad debe contener un valor positivo")  
+               raise ValidationError("El stock debe contener un valor positivo")  

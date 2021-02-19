@@ -9,7 +9,7 @@
                        <field name="id_proveedores" />
                        <field name="descripcion"/>
                        <field name="Direccion"/>
-                       <field name="email"/>
+                       <field name="email" widget="email"/>
                        
                 </tree>
             </field>
@@ -26,7 +26,7 @@
                              <field name="id_proveedores" />
                              <field name="descripcion" />                          
                              <field name="Direccion" />
-                             <field name="email"/>
+                             <field name="email" widget="email"/>
                             
 
                         </group>

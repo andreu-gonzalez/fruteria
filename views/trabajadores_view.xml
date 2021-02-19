@@ -11,8 +11,8 @@
                        <field name="dni"/>
                        <field name="descripcion"/>
                        <field name="Direccion"/>
-                       <field name="email"/>
-                       <field name="tlf"/>
+                       <field name="email" widget="email"/>
+                       <field name="tlf" widget="phone"/>
                        <field name="sueldo"/>
                        <field name="cargo"/>
                 </tree>
@@ -35,10 +35,11 @@
                                     <field name="Direccion"/>
                                </group>
                                <group>     
-                                    <field name="email"/>
-                                    <field name="tlf"/>
+                                    <field name="email" widget="email"/>
+                                    <field name="tlf" widget="phone"/>
                                     <field name="sueldo"/>
                                     <field name="cargo"/>
+                                     <field name="clientes"/>
                                 </group>    
                              
 
