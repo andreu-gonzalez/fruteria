@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="fruteria.listado_detfac_model_tree">
+            <field name="name">Fruteria</field>
+            <field name="model">fruteria.detfac_model</field>
+            <field name="arch" type="xml">
+                <tree>
+                       <field name="cantidad" />
+                       <field name="facturas_id" />
+                       <field name="productos_id" />
+                       
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="fruteria.listado_detfac_model_form">
+            <field name="name">Detalle fac</field>
+            <field name="model">fruteria.detfac_model</field>
+            <field name="arch" type="xml">
+                <form string="Fruteria">
+                    <sheet>
+                          <group>
+                              <field name="cantidad" />
+                              <field name="facturas_id" />
+                              <field name="productos_id" />  
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="fruteria.action_window_detfac_model">
+            <field name="name">Detalle fac</field>
+            <field name="res_model">fruteria.detfac_model</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem name="Gestión de fruteria" id="fruteria.menu_root"/>
+      
+        
+    </data>
+</odoo>

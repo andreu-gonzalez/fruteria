@@ -1,0 +1,51 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="fruteria.listado_proveedores_model_tree">
+            <field name="name">Fruteria</field>
+            <field name="model">fruteria.proveedores_model</field>
+            <field name="arch" type="xml">
+                <tree>
+                       <field name="name" />
+                       <field name="id_proveedores" />
+                       <field name="descripcion"/>
+                       <field name="Direccion"/>
+                       <field name="email"/>
+                       
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="fruteria.listado_proveedores_model_form">
+            <field name="name">Proveedores</field>
+            <field name="model">fruteria.proveedores_model</field>
+            <field name="arch" type="xml">
+                <form string="Fruteria">
+                    <sheet>
+                          <group>
+                             <field name="name" />
+                             <field name="id_proveedores" />
+                             <field name="descripcion" />                          
+                             <field name="Direccion" />
+                             <field name="email"/>
+                            
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="fruteria.action_window_proveedores_model">
+            <field name="name">Proveedores</field>
+            <field name="res_model">fruteria.proveedores_model</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem name="Gestión de fruteria" id="fruteria.menu_root"/>
+        <menuitem name="proveedores " id="fruteria.menu_proveedores_model" parent="fruteria.menu_root"/>
+        <menuitem name="pro" id="fruteria.menu_proveedores_model_listado" parent="fruteria.menu_proveedores_model"
+              action="fruteria.action_window_proveedores_model"/>
+        
+    </data>
+</odoo>

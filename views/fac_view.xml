@@ -1,0 +1,134 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="fruteria.listado_fac_model_tree">
+            <field name="name">Fruteria</field>
+            <field name="model">fruteria.fac_model</field>
+            <field name="arch" type="xml">
+                <tree>
+                       <field name="name" />
+                       <field name="fecha" />
+                       <field name="base"/>
+                       <field name="total"/>
+                       
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="fruteria.listado_fac_model_form">
+            <field name="name">Factura</field>
+            <field name="model">fruteria.fac_model</field>
+            <field name="arch" type="xml">
+                <form string="Fruteria">
+                    <header>
+                         <button name="eliminaHistorial" type="object" confirm="Desea eliminar el historial de registros" string="Elimina Historial" class="oe_highlight" />
+                    </header>
+                    <sheet>
+                          <group>
+                            
+                                <field name="name" />
+                                <field name="fecha" />
+                                <field name ="cliente"/>
+                                <field name="base"/>
+                                <field name="iva"/>
+                                <field name="total"/>
+                                <field name="detallef"/>
+                                
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    
+
+ 
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="fruteria.action_window_fac_model">
+            <field name="name">Factura</field>
+            <field name="res_model">fruteria.fac_model</field>
+            <field name="view_mode">tree,form,pivot,calendar,graph</field>
+        </record>
+        
+        <menuitem name="Gestión de fruteria" id="fruteria.menu_root"/>
+        <menuitem name="Facturas " id="fruteria.menu_fac_model" parent="fruteria.menu_root"/>
+        <menuitem name="fac" id="fruteria.menu_fac_model_listado" parent="fruteria.menu_fac_model"
+              action="fruteria.action_window_fac_model"/>
+
+    <record model="ir.ui.view" id="fruteria.fac_model">
+         <field name="name">Pivot de factura</field>
+         <field name="model">fruteria.fac_model</field>
+         <field name="arch" type="xml">
+        <pivot string="Pivot de fruteria">
+          <field name="name" />
+          <field name="fecha" type="row" interval="month" />
+          <field name="base" type="measure" />
+        </pivot>
+
+            </field>
+
+    </record>
+    <record model="ir.ui.view" id="fruteria.calendar_fac_model">
+
+         <field name="name">Calendario de fruteria</field>
+
+         <field name="model">fruteria.fac_model</field>
+
+         <field name="arch" type="xml">
+
+        <calendar date_start="fecha" color="name" event_open_popup="True" mode="month" form_view_id="fruteria.form_fac_model" quick_add="False">
+
+                <field name="name"/>
+
+                <field name="fecha"/>
+
+        </calendar>
+
+             </field>
+
+    </record>
+    <record model="ir.ui.view" id="fruteria.graph_fac_model">
+
+        <field name="name">Gráfico de Facturas</field>
+
+        <field name="model">fruteria.fac_model</field>
+
+        <field name="arch" type="xml">
+
+            <graph type="pie">
+
+                <field name="name" type="row"/>
+
+                <field name="fecha" interval="month"/>
+
+                <field name="total" type="measure" widget="monetary"/>
+
+            </graph>
+
+         </field>
+
+    </record> 
+    
+    <record model="ir.ui.view" id="fruteria.fac_model_search">
+      <field name="name">Filtros de Fruteria</field>
+      <field name="model">fruteria.fac_model</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="fecha" />
+          <field name="cliente" />
+          <field name="base" />
+          <field name="total" />
+          <filter string="Historico de Registros Anual" name="HistAnualReg" domain="[('active','!=',True)]" />
+          <group expand="0" string="Group By">
+            <filter string="Cliente" name="cliente" context="{'group_by': 'cliente'}"></filter>
+            <filter string="Name" name="name" context="{'group_by': 'name'}"></filter>
+          </group>
+
+        </search>
+      </field>
+
+    </record>
+      
+
+        
+    </data>
+</odoo>

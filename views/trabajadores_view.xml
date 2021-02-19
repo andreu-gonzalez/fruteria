@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="fruteria.listado_trabajadores_model_tree">
+            <field name="name">Fruteria</field>
+            <field name="model">fruteria.trabajadores_model</field>
+            <field name="arch" type="xml">
+                <tree>
+                       <field name="name" />
+                       <field name="id_trabajadores" />
+                       <field name="apellidos"/>
+                       <field name="dni"/>
+                       <field name="descripcion"/>
+                       <field name="Direccion"/>
+                       <field name="email"/>
+                       <field name="tlf"/>
+                       <field name="sueldo"/>
+                       <field name="cargo"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="fruteria.listado_trabajadores_model_form">
+            <field name="name">Trabajadores</field>
+            <field name="model">fruteria.trabajadores_model</field>
+            <field name="arch" type="xml">
+                <form string="Fruteria">
+                    <sheet>
+                          <group>
+                             <group>
+                                    <field name="name" />
+                                    <field name="id_trabajadores" />
+                                    <field name="apellidos"/>
+                                    <field name="dni"/>
+                                    <field name="descripcion"/>
+                                    <field name="Direccion"/>
+                               </group>
+                               <group>     
+                                    <field name="email"/>
+                                    <field name="tlf"/>
+                                    <field name="sueldo"/>
+                                    <field name="cargo"/>
+                                </group>    
+                             
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="fruteria.action_window_trabajadores_model">
+            <field name="name">Trabajadores</field>
+            <field name="res_model">fruteria.trabajadores_model</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem name="Gestión de fruteria" id="fruteria.menu_root"/>
+        <menuitem name="Trabajadores" id="fruteria.menu_trabajadores_model" parent="fruteria.menu_root"/>
+        <menuitem name="listado trabajadores" id="fruteria.menu_trabajadores_model_listado" parent="fruteria.menu_trabajadores_model"
+              action="fruteria.action_window_trabajadores_model" />
+        
+    </data>
+</odoo>

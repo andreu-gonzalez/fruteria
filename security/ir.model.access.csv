@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fruteria_producto_model,fruteria.producto_model,model_fruteria_producto_model,,1,1,1,1
+access_fruteria_clientes_model,fruteria.clientes_model,model_fruteria_clientes_model,,1,1,1,1
+access_fruteria_proveedores_model,fruteria.proveedores_model,model_fruteria_proveedores_model,,1,1,1,1
+access_fruteria_fac_model,fruteria.fac_model,model_fruteria_fac_model,,1,1,1,1
+access_fruteria_detfac_model,fruteria.detfac_model,model_fruteria_detfac_model,,1,1,1,1
+access_fruteria_trabajadores_model,fruteria.trabajadores_model,model_fruteria_trabajadores_model,,1,1,1,1
+
+

@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="fruteria.listado_producto_model_tree">
+            <field name="name">Fruteria</field>
+            <field name="model">fruteria.producto_model</field>
+            <field name="arch" type="xml">
+                <tree >
+                       <field name="name" />
+                       <field name="id_productos" />
+                       <field name="descripcion"/>
+                       <field name="stock"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="fruteria.listado_producto_model_form">
+            <field name="name">Producto </field>
+            <field name="model">fruteria.producto_model</field>
+            <field name="arch" type="xml">
+                <form string="Fruteria">
+                    <sheet>
+                          
+                           <notebook>
+                            <page string="Información">
+                             <group>
+                                 <field name="name" />
+                                 <field name="id_productos" />
+                                 <field name="descripcion" />                          
+                                 <field name="stock" />
+                                 <field name="detallef" />
+                                 <field name="produc" />
+                                 <field name="procedencia"/>
+                                 <field name="precio"/>
+                              </group>   
+                             </page>
+                            </notebook>
+                      
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="fruteria.action_window_producto_model">
+            <field name="name">Producto</field>
+            <field name="res_model">fruteria.producto_model</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    
+        
+        <menuitem name="Gestión de fruteria" id="fruteria.menu_root"/>
+        <menuitem name="producto " id="fruteria.menu_producto_model" parent="fruteria.menu_root"/>
+        <menuitem name="pro" id="fruteria.menu_producto_model_listado" parent="fruteria.menu_producto_model"
+              action="fruteria.action_window_producto_model"/>
+
+       
+    </data>
+</odoo>

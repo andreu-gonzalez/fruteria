@@ -1,0 +1,149 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="fruteria.listado_clientes_model_tree">
+            <field name="name">Fruteria</field>
+            <field name="model">fruteria.clientes_model</field>
+            <field name="arch" type="xml">
+                <tree decoration-danger="len(facturas)  &gt; 0">
+                       <field name="name" />
+                       <field name="id_clientes" />
+                       <field name="apellidos"/>
+                       <field name="dni"/>
+                       <field name="descripcion"/>
+                       <field name="Direccion"/>
+                       <field name="email"/>
+                       <field name="tlf"/>
+                       <field name="facturas" attrs="{'invisible':[('facturas', 'in',[[6, False, []]] )]}"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="fruteria.listado_clientes_model_form">
+            <field name="name">Producto </field>
+            <field name="model">fruteria.clientes_model</field>
+            <field name="arch" type="xml">
+                <form string="Fruteria">
+                    <sheet>
+                          <group>
+                             <group>
+                                    <field name="name" />
+                                    <field name="id_clientes" />
+                                    <field name="apellidos"/>
+                                    <field name="dni" />
+                                    <field name="descripcion"/>
+                                    <field name="Direccion"/>
+                                    <field name="email"/>
+                                    <field name="tlf"/>
+                             </group> 
+                             <group>
+                                    <field name="facturas"/>
+                                    <field name="tra"/>
+                                    <field name="foto" widget="image"/>  
+                             </group> 
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="fruteria.action_window_clientes_model">
+            <field name="name">Cliente</field>
+            <field name="res_model">fruteria.clientes_model</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        
+        <menuitem name="Gestión de fruteria" id="fruteria.menu_root"/>
+        <menuitem name="Clientes " id="fruteria.menu_clientes_model" parent="fruteria.menu_root"/>
+        <menuitem name="Cli" id="fruteria.menu_clientes_model_listado" parent="fruteria.menu_clientes_model"
+              action="fruteria.action_window_clientes_model"/>
+
+
+        <record model="ir.ui.view" id="fruteria.kanban_clientes_model">
+
+            <field name="name">Listado de CLientes</field>
+
+            <field name="model">fruteria.clientes_model</field>
+
+            <field name="arch" type="xml">
+
+                <kanban class="o_res_partner_kanban">
+
+                <field name="dni"/>
+
+                <field name="name"/>
+
+                <field name="foto"/>
+
+                <field name="apellidos"/>
+
+                <field name="email"/>
+
+                <field name="tlf"/>
+
+                <templates>
+
+                <t t-name="kanban-box">
+
+                    <div t-attf-class="oe_kanban_global_click">
+
+                        <div class="o_kanban_image">
+
+                        <field name="foto" nolabel="1" widget="image" class="oe_right oe_avatar"/>
+
+                    </div>
+
+                    <div class="oe_kanban_details">
+
+                        <strong>
+
+                            <field name="apellidos" class="oe_inline"/>, <field name="name" class="oe_inline"/>
+
+                        </strong>
+
+                    <div t-if="record.tlf.value">
+
+                        <t t-esc="record.tlf.value"/>
+
+                    </div>
+
+                    <div t-if="record.email.value">
+
+                         <t t-esc="record.email.value"/>
+
+                    </div>
+
+                    </div>
+
+                 </div>
+
+                </t>
+
+                </templates>
+
+            </kanban>
+
+        </field>
+
+        </record>      
+    <record model="ir.ui.view" id="fruteria.clientes_model_search">
+      <field name="name">Filtros de Campaña</field>
+      <field name="model">fruteria.clientes_model</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="apellidos" />
+          
+          
+            <group expand="0" string="Agrupar por">
+                <filter name="apellidos" context="{'group_by':'apellidos'}" />
+            </group>
+            
+          
+
+        </search>
+      </field>
+
+    </record>
+        
+    </data>
+</odoo>
