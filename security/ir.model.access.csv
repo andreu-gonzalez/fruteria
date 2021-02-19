@@ -4,6 +4,6 @@ access_fruteria_clientes_model,fruteria.clientes_model,model_fruteria_clientes_m
 access_fruteria_proveedores_model,fruteria.proveedores_model,model_fruteria_proveedores_model,,1,1,1,1
 access_fruteria_fac_model,fruteria.fac_model,model_fruteria_fac_model,,1,1,1,1
 access_fruteria_detfac_model,fruteria.detfac_model,model_fruteria_detfac_model,,1,1,1,1
-access_fruteria_trabajadores_model,fruteria.trabajadores_model,model_fruteria_trabajadores_model,,1,1,1,1
-
+access_fruteria_trabajadores_model_Jefes,fruteria.trabajadores_model,model_fruteria_trabajadores_model,fruteria_group_adm,1,1,1,1
+access_fruteria_trabajadores_model_EMP,fruteria.trabajadores_model,model_fruteria_trabajadores_model,fruteria_group_facult,1,1,1,0
 

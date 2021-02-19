@@ -58,7 +58,7 @@
         <menuitem name="Gestión de fruteria" id="fruteria.menu_root"/>
         <menuitem name="Trabajadores" id="fruteria.menu_trabajadores_model" parent="fruteria.menu_root"/>
         <menuitem name="listado trabajadores" id="fruteria.menu_trabajadores_model_listado" parent="fruteria.menu_trabajadores_model"
-              action="fruteria.action_window_trabajadores_model" />
+              action="fruteria.action_window_trabajadores_model" groups="fruteria_group_adm"/>
         
     </data>
 </odoo>

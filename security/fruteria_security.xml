@@ -1,0 +1,39 @@
+
+
+<odoo>
+
+
+    <record  id="module_fruteria_category" model="ir.module.category">
+
+        <field name="name">Fruteria</field>
+
+    </record>
+
+
+
+
+
+    <record  id="fruteria_group_adm" model="res.groups">
+
+        <field name="name">Jefes</field>
+
+        <field name="category_id" ref="module_fruteria_category"/>
+
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+
+    </record>
+
+
+
+
+    <record id="fruteria_group_facult" model="res.groups" >
+
+        <field name="name">EMP</field>
+
+        <field name="category_id" ref="module_fruteria_category"/>
+
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+
+    </record>
+
+</odoo>

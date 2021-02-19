@@ -24,7 +24,7 @@
 
     # always loaded
     'data': [
-        #'security/fruteria_security.xml',
+        'security/fruteria_security.xml',
         'security/ir.model.access.csv',
         'views/producto_view.xml',
         'views/clientes_view.xml',
